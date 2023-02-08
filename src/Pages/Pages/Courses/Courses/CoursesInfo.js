@@ -8,14 +8,14 @@ const CoursesInfo = () => {
 
     //course single name
     useEffect(() => {
-        fetch(`http://localhost:5000/coursename`)
+        fetch(`https://educational-website-server-azure.vercel.app/coursename`)
             .then(res => res.json())
             .then(data => setCourseName(data))
     }, [])
 
     //course details
     useEffect(() => {
-        fetch('http://localhost:5000/coursedetails')
+        fetch('https://educational-website-server-azure.vercel.app/coursedetails')
             .then(res => res.json())
             .then(data => setCourseDetails(data))
     }, [])

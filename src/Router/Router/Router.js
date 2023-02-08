@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
             {
                 path: '/uniquequersdetails/:id',
                 element: <PrivetRoute><UniqueCourseDetails></UniqueCourseDetails></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://educational-website-server-azure.vercel.app/course/${params.id}`)
             },
             {
                 path: '/login',
@@ -57,3 +57,5 @@ export const router = createBrowserRouter([
         ]
     }
 ])
+
+//https://educational-website-server-azure.vercel.app/
