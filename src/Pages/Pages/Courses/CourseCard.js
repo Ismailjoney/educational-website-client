@@ -1,27 +1,33 @@
 import React from 'react';
- 
+import { Link } from 'react-router-dom';
+import background from '../../../assets/background.jpg'
 
-const CourseCard = ({cDetails}) => {
-    console.log(cDetails)
-    const{name,admisionlastdate,coursefee,coursestart,details,header,img} = cDetails;
+const CourseCard = ({ cDetails }) => {
+
+    const { name, admisionlastdate, coursefee, coursestart, details, header, img, id } = cDetails;
 
 
     return (
-        <div className="card w-96 bg-base-100 shadow-xl leading-6">
-            <figure><img src={img} alt="course Image" /></figure>
+        <div style={{ background: `url(${background})` }} className="card w-96 bg-base-100 shadow-xl">
+            <figure>
+                <img style={{ width: '400px', height: '300px' }} src={img} alt="course Image" />
+            </figure>
             <div className="card-body">
                 <h2 className="card-title">
                     <p> {name}</p>
                 </h2>
-                <h3>Course Name :{header}</h3>
-                <p>Course Addimission Fee :{coursefee}</p>
-                <p>Addmission Last Date :{admisionlastdate}</p>
-                <p>Class Start :{coursestart}</p>
-                <p>Course Information :{details}</p>
-                
-                <div className="card-actions justify-end">
-                    <div className="badge badge-outline">Fashion</div>
-                    <div className="badge badge-outline">Products</div>
+                <div>
+                    <h3>Course Name :{header}</h3>
+                </div>
+                <div>
+                    <p>Course Information :{details.length > 100 ? details.slice(0, 100) + '....' : details}</p>
+                </div>
+                <div className="card-actions justify-end mt-3">
+                    <button className='className="btn btn-primary w-100 p-2 fw-bold  '>
+                        <Link to={`/uniquequersdetails/${id}`}>
+                            Details
+                        </Link>
+                    </button>
                 </div>
             </div>
         </div>
